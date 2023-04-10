@@ -1,0 +1,16 @@
+﻿<Window x:Class="DataBindingDemo2023.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataBindingDemo2023"
+        mc:Ignorable="d"
+        Title="Data Binding Demo" Height="450" Width="500">
+    <Grid Loaded="Grid_Loaded">
+        <Image x:Name="CupcakeImage" HorizontalAlignment="Left" Height="100" Margin="47,113,0,0" Source ="{Binding Path=Picture}" VerticalAlignment="Top" Width="100"/>
+        <TextBlock x:Name="CupcakeName" HorizontalAlignment="Left" Margin="40,237,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="145"/>
+        <TextBlock x:Name="CupcakeDescription" HorizontalAlignment="Left" Margin="40,271,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Height="59" Width="145"/>
+        <Button x:Name="NaviagationButton" Content="Next" HorizontalAlignment="Left" Margin="76,349,0,0" VerticalAlignment="Top" Width="72" Click="NaviagationButton_Click"/>
+
+    </Grid>
+</Window>
