@@ -20,13 +20,9 @@ namespace DataBindingDemo2023
     /// </summary>
     public partial class MainWindow : Window
     {
-        Cupcake[] cupcakes =
-        {
-            new Cupcake("Chocolate Explosion", "An awesome...", "chocolate.png"),
-            new Cupcake("Vanilla Something", "A description here...", "vanilla.png"),
-            new Cupcake("Blueberry Bonanza", "description...", "blueberry.png")
-        };
-        int index = 0;
+        public Person Player = new Person();
+        public Menu CurrentMenu = new Menu();
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -34,16 +30,24 @@ namespace DataBindingDemo2023
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            DataContext = cupcakes[index];
+            //DataContext = cupcakes[index];
+            CupcakeData.DataContext = CurrentMenu.Cupcakes[CurrentMenu.Index];
+            OrderDetails.DataContext = Player.CurrentOrder;
         }
 
         private void NaviagationButton_Click(object sender, RoutedEventArgs e)
         {
-            index++;
-            if (index >= cupcakes.Length)
-                index = 0;
-            DataContext = cupcakes[index];
+            CurrentMenu.Index++;
+            if (CurrentMenu.Index >= CurrentMenu.Cupcakes.Length)
+                CurrentMenu.Index = 0;
+            CupcakeData.DataContext = CurrentMenu.Cupcakes[CurrentMenu.Index];
 
+        }
+
+        private void AddToOrder_Click(object sender, RoutedEventArgs e)
+        {
+            Player.CurrentOrder.Items.Add(CurrentMenu.Cupcakes[CurrentMenu.Index]);
+            Player.CurrentOrder.OrderDetails();
         }
     }
 }

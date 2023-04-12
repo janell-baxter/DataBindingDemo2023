@@ -12,6 +12,9 @@ namespace DataBindingDemo2023
         public string Name { get; set; }
         public string Description { get; set; }
         public BitmapImage Picture { get; set; }
+        public double Price = 2.5;
+        public string PriceDetail { get; set; }
+
 
         public Cupcake(string _name, string _description, string _path)
         {

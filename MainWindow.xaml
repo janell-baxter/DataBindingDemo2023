@@ -7,10 +7,14 @@
         mc:Ignorable="d"
         Title="Data Binding Demo" Height="450" Width="500">
     <Grid Loaded="Grid_Loaded">
-        <Image x:Name="CupcakeImage" HorizontalAlignment="Left" Height="100" Margin="47,113,0,0" Source ="{Binding Path=Picture}" VerticalAlignment="Top" Width="100"/>
-        <TextBlock x:Name="CupcakeName" HorizontalAlignment="Left" Margin="40,237,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="145"/>
-        <TextBlock x:Name="CupcakeDescription" HorizontalAlignment="Left" Margin="40,271,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Height="59" Width="145"/>
-        <Button x:Name="NaviagationButton" Content="Next" HorizontalAlignment="Left" Margin="76,349,0,0" VerticalAlignment="Top" Width="72" Click="NaviagationButton_Click"/>
+        <Canvas x:Name="CupcakeData">
+            <Image x:Name="CupcakeImage" HorizontalAlignment="Left" Height="100" Margin="47,113,0,0" Source ="{Binding Path=Picture}" VerticalAlignment="Top" Width="100"/>
+            <TextBlock x:Name="CupcakeName" HorizontalAlignment="Left" Margin="40,237,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="145"/>
+            <TextBlock x:Name="CupcakeDescription" HorizontalAlignment="Left" Margin="40,271,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Height="59" Width="145"/>
+            <Button x:Name="NaviagationButton" Content="Next" HorizontalAlignment="Left" VerticalAlignment="Top" Width="72" Click="NaviagationButton_Click" Canvas.Left="88" Canvas.Top="349"/>
 
+            <Button x:Name="AddToOrder" Content="Add" Canvas.Left="21" Canvas.Top="349" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Click="AddToOrder_Click"/>
+        </Canvas>
+        <TextBlock x:Name="OrderDetails" Canvas.Left="303" TextWrapping="Wrap" Text="{Binding Path=Details, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Top="28" Margin="223,35,34,42"/>
     </Grid>
 </Window>
